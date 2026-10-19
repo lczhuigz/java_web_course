@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>事件绑定演示</title>
+</head>
+<body>
+<!--通过属性直接绑定事件-->
+<input type="button" onclick="handleClick()" value="按钮1">
+<!--通过DOM绑定事件-->
+<input type="button" id="btn2" value="按钮2">
+<script>
+    // 定义事件处理函数
+    function handleClick() {
+    alert(typeof(null));
+    alert(typeof(undefined));
+       <!-- alert("按钮1被单击了!");-->
+    }
+    //通过id属性获取按钮对象，并操作对象的onclick属性绑定事件
+    document.getElementById('btn2').onclick = function(){
+        alert("按钮2被单击了!");
+    }
+</script>
+</body>
+</html>

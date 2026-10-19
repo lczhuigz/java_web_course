@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>用户登录</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .login-form {
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+        .login-form h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+        .form-group button {
+            width: 100%;
+            padding: 10px;
+            background-color: #5c67f2;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        .form-group button:hover {
+            background-color: #4a54e1;
+        }
+    </style>
+</head>
+<body>
+<div class="login-form">
+    <h2>登录</h2>
+    <form action="/login" method="post">
+        <div class="form-group">
+            <label for="username">用户名:</label>
+            <input type="text" id="username" name="username" required>
+        </div>
+        <div class="form-group">
+            <label for="password">密码:</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+        <div class="form-group">
+            <button type="submit">登录</button>
+        </div>
+    </form>
+</div>
+<!--生成Javascript代码，上述表单提交时，校验用户名和密码是否都为admin，弹出登录结果提示-->
+<script>
+    // 获取表单元素
+    const form = document.querySelector('form');
+    // 监听表单提交事件
+    form.addEventListener('submit', function(event) {
+        // 阻止表单默认提交行为
+        event.preventDefault();
+        // 获取用户名和密码输入框的值
+        const username = document.querySelector('#username').value;
+        const password = document.querySelector('#password').value;
+        // 判断用户名和密码是否都为admin
+        if (username === 'admin' && password === 'admin') {
+            // 弹出登录成功提示
+            alert('登录成功！');
+        } else {
+            // 弹出登录失败提示
+            alert('登录失败，请检查用户名和密码是否正确！');
+        }
+    });
+</script>
+</body>
+</html>

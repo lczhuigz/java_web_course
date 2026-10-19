@@ -1,0 +1,38 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <script src="axios.min.js"></script>
+</head>
+<body>
+    <button onclick="postData()">发送post请求</button>
+    <button onclick="fetchData()">发送get请求</button>
+<script>
+    //发送post请求的函数
+    function postData() {
+        const data = {
+            name: 'wangwu',
+            age: 20,
+            sex:'女'
+        };
+        axios.post('/chapter08/axiosServlet', data)
+            .then(response => {
+                console.log(response.data);
+            })
+            .catch(error => {
+                console.error('请求失败:', error);
+            });
+    }
+    // 发送get请求的函数
+    function fetchData() {
+        axios.get('/chapter08/axiosServlet?id=1'
+           )
+            .then(response => {
+                console.log(response.data);
+            })
+            .catch(error => {
+                console.error('请求失败:', error);
+            });
+    }
+</script>
+</body>
+</html>

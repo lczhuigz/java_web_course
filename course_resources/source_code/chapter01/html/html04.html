@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表格标签展示</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 50%;
+            margin: 20px auto;
+        }
+        th, td {
+            border: 2px double black;
+            padding: 8px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<table>
+    <tr>
+        <th>排名</th>
+        <th>姓名</th>
+        <th>分数</th>
+        <th>备注</th>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>张三</td>
+        <td>100</td>
+        <td rowspan="3">
+            第一名获得奖学金
+        </td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>李四</td></td>
+        <td>99</td>
+    </tr>
+    <tr>
+        <td>平均分</td>
+        <td colspan="2">99.5</td>
+    </tr>
+</table>
+</body>
+</html>

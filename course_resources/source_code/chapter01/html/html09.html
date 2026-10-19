@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户登录</title>
+    <style>
+        /* 元素选择器 */
+        input {
+            width: 200px;             /* 设置宽度 */
+            border: 1px solid black;  /* 设置边框样式 */
+            padding: 5px;             /* 设置内容与边框间距 */
+            margin-bottom: 10px;      /* 设置下方外边距 */
+        }
+        /* ID选择器 */
+        #password {
+            border-color: red;        /* 设置边框颜色为红色 */
+        }
+        /* 类选择器 */
+        .button {
+            background-color: yellow; /* 设置按钮的背景色为黄色 */
+            width: 86px;              /* 设置按钮的宽度 */
+        }
+        /* 通用选择器 */
+        * {
+            color: blue;         /* 设置所有元素的文本颜色为蓝色 */
+            margin-left :35px;   /* 设置所有元素的左边外边距 */
+        }
+    </style>
+</head>
+<body>
+<form action="#" method="get">
+    <h2>用户登录</h2>
+    <input type="text" placeholder="用户名">
+    <input id="password" type="password" placeholder="密码"> <br>
+    <input class="button" type="submit" value="登录">
+    <input class="button" type="button" value="重置">
+    <p>请输入有效的用户名和密码</p>
+</form>
+</body>
+</html>
