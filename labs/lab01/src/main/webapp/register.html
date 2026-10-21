@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>用户注册 · lab01</title>
+    <style>
+        :root {
+            --primary: #0f766e;
+            --primary-light: #14b8a6;
+            --text: #1e293b;
+            --muted: #64748b;
+            --border: #d8dee9;
+            --radius: 12px;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
+            color: var(--text);
+            background:
+                radial-gradient(1200px 600px at 10% -10%, #ccfbf1 0%, transparent 60%),
+                radial-gradient(1000px 500px at 110% 110%, #e0f2fe 0%, transparent 55%),
+                #f8fafc;
+        }
+
+        .card {
+            width: 100%;
+            max-width: 400px;
+            padding: 36px 32px 30px;
+            background: #fff;
+            border-radius: 18px;
+            border: 1px solid rgba(148, 163, 184, .18);
+            box-shadow: 0 24px 50px -24px rgba(15, 23, 42, .35);
+        }
+
+        .brand {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            color: var(--primary);
+            background: #f0fdfa;
+            padding: 5px 10px;
+            border-radius: 999px;
+            margin-bottom: 18px;
+        }
+
+        .brand::before {
+            content: "";
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--primary);
+        }
+
+        h1 {
+            margin: 0 0 6px;
+            font-size: 23px;
+            font-weight: 700;
+            letter-spacing: .01em;
+        }
+
+        .subtitle {
+            margin: 0 0 26px;
+            font-size: 13.5px;
+            color: var(--muted);
+        }
+
+        .field { margin-bottom: 18px; }
+
+        .field label {
+            display: block;
+            margin-bottom: 7px;
+            font-size: 13px;
+            font-weight: 600;
+            color: #475569;
+        }
+
+        .field input {
+            width: 100%;
+            padding: 11px 13px;
+            font-size: 14px;
+            font-family: inherit;
+            color: var(--text);
+            background: #fbfcfe;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            transition: border-color .18s ease, box-shadow .18s ease, background .18s ease;
+        }
+
+        .field input::placeholder { color: #a3aec2; }
+
+        .field input:hover { border-color: #bcc7d8; }
+
+        .field input:focus {
+            outline: none;
+            background: #fff;
+            border-color: var(--primary-light);
+            box-shadow: 0 0 0 4px rgba(20, 184, 166, .18);
+        }
+
+        .field .hint {
+            margin: 6px 0 0;
+            font-size: 12px;
+            color: #94a3b8;
+        }
+
+        .btn {
+            width: 100%;
+            margin-top: 6px;
+            padding: 12px 16px;
+            font-size: 15px;
+            font-weight: 600;
+            font-family: inherit;
+            color: #fff;
+            background: linear-gradient(135deg, var(--primary-light), var(--primary));
+            border: 0;
+            border-radius: var(--radius);
+            cursor: pointer;
+            box-shadow: 0 10px 20px -10px rgba(13, 148, 136, .8);
+            transition: transform .15s ease, box-shadow .15s ease, filter .15s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-1px);
+            filter: brightness(1.05);
+            box-shadow: 0 14px 26px -12px rgba(13, 148, 136, .9);
+        }
+
+        .btn:active { transform: translateY(0); }
+
+        .btn:focus-visible {
+            outline: 3px solid rgba(20, 184, 166, .45);
+            outline-offset: 2px;
+        }
+
+        .foot {
+            margin-top: 22px;
+            padding-top: 18px;
+            border-top: 1px solid #eef2f7;
+            text-align: center;
+            font-size: 13.5px;
+            color: var(--muted);
+        }
+
+        .foot a {
+            color: var(--primary);
+            font-weight: 600;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color .15s ease;
+        }
+
+        .foot a:hover { border-bottom-color: currentColor; }
+    </style>
+</head>
+<body>
+<main class="card">
+    <span class="brand">lab01</span>
+    <h1>用户注册</h1>
+    <p class="subtitle">创建一个新账号，只需几秒钟</p>
+
+    <!-- 表单提交到后端 RegisterServlet（映射 /register） -->
+    <form action="register" method="post">
+        <div class="field">
+            <label for="userName">用户名</label>
+            <input type="text" id="userName" name="userName" placeholder="请输入用户名"
+                   autocomplete="username" required>
+            <p class="hint">建议使用 3-16 位字母或数字</p>
+        </div>
+        <div class="field">
+            <label for="password">密码</label>
+            <input type="password" id="password" name="password" placeholder="请输入密码"
+                   autocomplete="new-password" required>
+        </div>
+        <button type="submit" class="btn">注 册</button>
+    </form>
+
+    <p class="foot">已有账号？<a href="login.html">返回登录</a></p>
+</main>
+</body>
+</html>
