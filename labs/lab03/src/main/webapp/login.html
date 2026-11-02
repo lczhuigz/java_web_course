@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>用户登录</title>
+    <style>
+        body { font-family: "微软雅黑", sans-serif; background: #f0f2f5; }
+        .box { width: 360px; margin: 120px auto; padding: 30px;
+            background: #fff; border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,.15); }
+        h2 { text-align: center; color: #333; }
+        label.field { display: block; margin: 10px 0 4px; color: #444; }
+        input[type=text], input[type=password] {
+            width: 100%; padding: 8px; border: 1px solid #ccc;
+            border-radius: 4px; box-sizing: border-box;
+        }
+        button { width: 100%; margin-top: 18px; padding: 10px;
+            background: #1677ff; color: #fff; border: none;
+            border-radius: 4px; cursor: pointer; font-size: 15px; }
+        button:hover { background: #0958d9; }
+        .err { color: #d93025; text-align: center; min-height: 20px; margin: 8px 0 0; }
+        .tip { color: #999; font-size: 12px; text-align: center; }
+    </style>
+</head>
+<body>
+<div class="box">
+    <h2>用户登录</h2>
+    <p class="err" id="errMsg"></p>
+
+    <form action="login" method="post">
+        <label class="field">用户名</label>
+        <input type="text" name="username" placeholder="请输入用户名" required>
+
+        <label class="field">密&nbsp;&nbsp;码</label>
+        <input type="password" name="password" placeholder="请输入密码" required>
+
+        <p style="margin-top:14px;">
+            <label><input type="checkbox" name="remember"> 两周不用登录</label>
+        </p>
+
+        <button type="submit">登 录</button>
+    </form>
+    <p class="tip">测试账号：admin / 123456</p>
+</div>
+
+<script>
+    // 根据 URL 参数显示错误提示（由 LoginServlet / AuthFilter 重定向带入）
+    (function () {
+        var params = new URLSearchParams(window.location.search);
+        var error = params.get('error');
+        var el = document.getElementById('errMsg');
+        if (error === '1') {
+            el.textContent = '用户名或密码错误！';
+        } else if (error === 'needLogin') {
+            el.textContent = '请先登录后再访问！';
+        }
+    })();
+</script>
+</body>
+</html>
